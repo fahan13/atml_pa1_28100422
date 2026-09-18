@@ -88,3 +88,44 @@ def clip_zero_shot_eval(clip_model, tokenizer, images_transformed, labels, class
     macro_f1 = f1_score(labels, preds, average='macro')
     metrics = {"top1_acc": float(top1_acc), "macro_f1": float(macro_f1), "mean_max_conf": float(max_conf.mean())}
     return metrics, preds
+
+import numpy as np
+
+def shape_texture_counts(preds, shape_labels, texture_labels):
+    """Classify each prediction as the shape label, the texture label, or neither."""
+    preds = np.asarray(preds)
+    shape_labels = np.asarray(shape_labels)
+    texture_labels = np.asarray(texture_labels)
+
+    n_shape = int((preds == shape_labels).sum())
+    n_texture = int((preds == texture_labels).sum())
+    n_total = len(preds)
+    n_other = n_total - n_shape - n_texture
+
+    denom = n_shape + n_texture
+    shape_bias = 100.0 * n_shape / denom if denom > 0 else float("nan")
+    coverage = 100.0 * denom / n_total if n_total > 0 else float("nan")
+
+    return {
+        "n_shape": n_shape, "n_texture": n_texture, "n_other": n_other, "n_total": n_total,
+        "shape_bias_pct": shape_bias, "coverage_pct": coverage,
+    }
+
+
+def extract_features_from_tensors(model, img_tensors, normalize_fn, model_type='resnet_or_vit',
+                                   batch_size=64, device='cuda'):
+    """Like extract_all_features, but for images we generated in memory
+    (already 224x224, [0,1]) rather than loaded from a dataset."""
+    model = model.to(device)
+    feats_all = []
+    with torch.no_grad():
+        for i in range(0, len(img_tensors), batch_size):
+            batch = img_tensors[i:i + batch_size]
+            batch = torch.stack([normalize_fn(x) for x in batch]).to(device)
+            if model_type == 'clip':
+                f = model.encode_image(batch)
+                f = f / f.norm(dim=-1, keepdim=True)
+            else:
+                f = model(batch)
+            feats_all.append(f.cpu().numpy())
+    return np.concatenate(feats_all)

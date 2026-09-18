@@ -1,0 +1,172 @@
+{
+  "alpha": 1.0,
+  "examples": {
+    "disagreement": [
+      {
+        "pair": "airplane-cat",
+        "shape_class": "airplane",
+        "texture_class": "cat",
+        "predictions": {
+          "resnet50": {
+            "predicted": "bird",
+            "verdict": "other"
+          },
+          "vit_b16": {
+            "predicted": "airplane",
+            "verdict": "shape"
+          },
+          "clip_head": {
+            "predicted": "truck",
+            "verdict": "other"
+          },
+          "clip_zeroshot": {
+            "predicted": "cat",
+            "verdict": "texture"
+          }
+        }
+      },
+      {
+        "pair": "airplane-cat",
+        "shape_class": "airplane",
+        "texture_class": "cat",
+        "predictions": {
+          "resnet50": {
+            "predicted": "cat",
+            "verdict": "texture"
+          },
+          "vit_b16": {
+            "predicted": "airplane",
+            "verdict": "shape"
+          },
+          "clip_head": {
+            "predicted": "airplane",
+            "verdict": "shape"
+          },
+          "clip_zeroshot": {
+            "predicted": "airplane",
+            "verdict": "shape"
+          }
+        }
+      },
+      {
+        "pair": "airplane-cat",
+        "shape_class": "cat",
+        "texture_class": "airplane",
+        "predictions": {
+          "resnet50": {
+            "predicted": "bird",
+            "verdict": "other"
+          },
+          "vit_b16": {
+            "predicted": "airplane",
+            "verdict": "texture"
+          },
+          "clip_head": {
+            "predicted": "cat",
+            "verdict": "shape"
+          },
+          "clip_zeroshot": {
+            "predicted": "cat",
+            "verdict": "shape"
+          }
+        }
+      }
+    ],
+    "all_texture": [
+      {
+        "pair": "truck-bird",
+        "shape_class": "truck",
+        "texture_class": "bird",
+        "predictions": {
+          "resnet50": {
+            "predicted": "bird",
+            "verdict": "texture"
+          },
+          "vit_b16": {
+            "predicted": "bird",
+            "verdict": "texture"
+          },
+          "clip_head": {
+            "predicted": "bird",
+            "verdict": "texture"
+          },
+          "clip_zeroshot": {
+            "predicted": "bird",
+            "verdict": "texture"
+          }
+        }
+      }
+    ],
+    "all_other": [
+      {
+        "pair": "airplane-cat",
+        "shape_class": "airplane",
+        "texture_class": "cat",
+        "predictions": {
+          "resnet50": {
+            "predicted": "bird",
+            "verdict": "other"
+          },
+          "vit_b16": {
+            "predicted": "horse",
+            "verdict": "other"
+          },
+          "clip_head": {
+            "predicted": "horse",
+            "verdict": "other"
+          },
+          "clip_zeroshot": {
+            "predicted": "monkey",
+            "verdict": "other"
+          }
+        }
+      },
+      {
+        "pair": "airplane-cat",
+        "shape_class": "airplane",
+        "texture_class": "cat",
+        "predictions": {
+          "resnet50": {
+            "predicted": "bird",
+            "verdict": "other"
+          },
+          "vit_b16": {
+            "predicted": "bird",
+            "verdict": "other"
+          },
+          "clip_head": {
+            "predicted": "bird",
+            "verdict": "other"
+          },
+          "clip_zeroshot": {
+            "predicted": "bird",
+            "verdict": "other"
+          }
+        }
+      },
+      {
+        "pair": "airplane-cat",
+        "shape_class": "airplane",
+        "texture_class": "cat",
+        "predictions": {
+          "resnet50": {
+            "predicted": "bird",
+            "verdict": "other"
+          },
+          "vit_b16": {
+            "predicted": "deer",
+            "verdict": "other"
+          },
+          "clip_head": {
+            "predicted": "truck",
+            "verdict": "other"
+          },
+          "clip_zeroshot": {
+            "predicted": "ship",
+            "verdict": "other"
+          }
+        }
+      }
+    ]
+  }
+}
