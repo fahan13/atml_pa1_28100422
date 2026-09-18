@@ -25,11 +25,11 @@
         "consistency": 0.948
       },
       "clip_zeroshot": {
-        "top1_acc": 0.486,
-        "macro_f1": 0.4601475882783501,
-        "mean_max_conf": 0.49092596769332886,
-        "acc_change": -0.478,
-        "consistency": 0.494
+        "top1_acc": 0.918,
+        "macro_f1": 0.9177252040171965,
+        "mean_max_conf": 0.927460253238678,
+        "acc_change": -0.04599999999999993,
+        "consistency": 0.922
       }
     },
     "hue_rotate": {
@@ -55,11 +55,11 @@
         "consistency": 0.936
       },
       "clip_zeroshot": {
-        "top1_acc": 0.542,
-        "macro_f1": 0.5252665778382678,
-        "mean_max_conf": 0.516859769821167,
-        "acc_change": -0.42199999999999993,
-        "consistency": 0.544
+        "top1_acc": 0.926,
+        "macro_f1": 0.9260495954873711,
+        "mean_max_conf": 0.915416955947876,
+        "acc_change": -0.03799999999999992,
+        "consistency": 0.926
       }
     }
   }
