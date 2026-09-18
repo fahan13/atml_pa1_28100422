@@ -1,0 +1,35 @@
+{
+  "step": "patch_structure",
+  "seed": 6304,
+  "grid": "4x4",
+  "models": {
+    "resnet50": {
+      "top1_acc": 0.836,
+      "macro_f1": 0.8363868859609875,
+      "mean_max_conf": 0.7300527095794678,
+      "acc_change": -0.11599999999999999,
+      "consistency": 0.854
+    },
+    "vit_b16": {
+      "top1_acc": 0.866,
+      "macro_f1": 0.8658494064386719,
+      "mean_max_conf": 0.703080415725708,
+      "acc_change": -0.09799999999999998,
+      "consistency": 0.892
+    },
+    "clip_head": {
+      "top1_acc": 0.792,
+      "macro_f1": 0.7929136790920497,
+      "mean_max_conf": 0.11802352964878082,
+      "acc_change": -0.17399999999999993,
+      "consistency": 0.804
+    },
+    "clip_zeroshot": {
+      "top1_acc": 0.826,
+      "macro_f1": 0.8234627587175891,
+      "mean_max_conf": 0.8032418489456177,
+      "acc_change": -0.138,
+      "consistency": 0.844
+    }
+  }
+}

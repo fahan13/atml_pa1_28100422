@@ -46,6 +46,47 @@ def translate_transform(img_tensor, shift, direction):
 
     return padded[:, top:top + H, left:left + W]
 
+import numpy as np
+import torch
+
+def patch_shuffle_transform(img_tensor, permutation):
+    """Cut the image into a 4x4 grid and rearrange the tiles according to `permutation`.
+
+    img_tensor: (3, H, W) in [0,1]. H and W must divide evenly by 4.
+    permutation: a list of 16 positions — permutation[i] says which original
+                 tile ends up in output slot i.
+
+    Every pixel survives; only the arrangement changes.
+    """
+    C, H, W = img_tensor.shape
+    gh, gw = 4, 4
+    ph, pw = H // gh, W // gw
+
+    # cut into 16 tiles, row by row
+    tiles = []
+    for r in range(gh):
+        for c in range(gw):
+            tiles.append(img_tensor[:, r*ph:(r+1)*ph, c*pw:(c+1)*pw])
+
+    # reassemble in the permuted order
+    out = torch.empty_like(img_tensor)
+    for slot, src in enumerate(permutation):
+        r, c = divmod(slot, gw)
+        out[:, r*ph:(r+1)*ph, c*pw:(c+1)*pw] = tiles[src]
+    return out
+
+def make_patch_permutations(n_images, seed=6304, n_patches=16):
+    """One non-identity permutation per image, generated once with a fixed seed
+    so every model receives exactly the same shuffled images."""
+    rng = np.random.RandomState(seed)
+    perms = []
+    for _ in range(n_images):
+        while True:
+            p = rng.permutation(n_patches)
+            if not np.array_equal(p, np.arange(n_patches)):   # reject the identity
+                break
+        perms.append(p.tolist())
+    return perms
 # each model's own final normalization step, applied AFTER the shared resize
 resnet_normalize = T.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])  # standard ImageNet stats
 vit_normalize = T.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])      # same — both pretrained on ImageNet this way
