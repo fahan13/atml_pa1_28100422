@@ -50,3 +50,34 @@ def extract_features(model, image_tensor, model_type='resnet_or_vit'):
             features = model(image_tensor)
     return features
 
+# task1/evaluations/evaluate_bias.py
+import numpy as np
+import torch
+from torch.utils.data import DataLoader, Subset
+
+def extract_all_features(model, dataset, indices, normalize_fn, model_type='resnet_or_vit', batch_size=64, device='cuda'):
+    from img_prep.transforms import to_common_224
+    
+    model = model.to(device)
+    subset = Subset(dataset, indices)
+
+    def collate(batch):
+        imgs = torch.stack([normalize_fn(to_common_224(img)) for img, _ in batch])  # resize->tensor first, THEN normalize
+        labels = torch.tensor([lbl for _, lbl in batch])
+        return imgs, labels
+
+    loader = DataLoader(subset, batch_size=batch_size, collate_fn=collate)
+
+    all_feats, all_labels = [], []
+    with torch.no_grad():
+        for imgs, labels in loader:
+            imgs = imgs.to(device)
+            if model_type == 'clip':
+                feats = model.encode_image(imgs)
+                feats = feats / feats.norm(dim=-1, keepdim=True)
+            else:
+                feats = model(imgs)
+            all_feats.append(feats.cpu().numpy())
+            all_labels.append(labels.numpy())
+
+    return np.concatenate(all_feats), np.concatenate(all_labels)

@@ -1,0 +1,26 @@
+{
+  "step": "clean_baseline",
+  "seed": 6304,
+  "models": {
+    "resnet50": {
+      "top1_acc": 0.952,
+      "macro_f1": 0.9519785680898508,
+      "mean_max_conf": 0.7020431160926819
+    },
+    "vit_b16": {
+      "top1_acc": 0.964,
+      "macro_f1": 0.9641221323159218,
+      "mean_max_conf": 0.8672109246253967
+    },
+    "clip_head": {
+      "top1_acc": 0.956,
+      "macro_f1": 0.955741066202758,
+      "mean_max_conf": 0.12711185216903687
+    },
+    "clip_zeroshot": {
+      "top1_acc": 0.934,
+      "macro_f1": 0.9327825612360451,
+      "mean_max_conf": 0.9264334440231323
+    }
+  }
+}
