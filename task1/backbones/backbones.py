@@ -42,11 +42,11 @@ def get_clip():
     return model, preprocess
 
 def extract_features(model, image_tensor, model_type='resnet_or_vit'):
-    with torch.no_grad():  # tells PyTorch "don't track gradients, we're not training"
+    with torch.no_grad():
         if model_type == 'clip':
             features = model.encode_image(image_tensor)
+            features = features / features.norm(dim=-1, keepdim=True)  # normalize to length 1
         else:
             features = model(image_tensor)
     return features
-
 
