@@ -19,6 +19,25 @@ def evaluate_head(head, feats, labels, device='cuda'):
     
     return {"top1_acc": float(top1_acc), "macro_f1": float(macro_f1), "mean_max_conf": float(mean_max_conf)}
 
+def evaluate_head_with_preds(head, feats, labels, device='cuda'):
+    head.eval()
+    feats_t = torch.tensor(feats, dtype=torch.float32).to(device)
+    with torch.no_grad():
+        logits = head(feats_t)
+        probs = torch.softmax(logits, dim=1)
+        preds = probs.argmax(dim=1).cpu().numpy()
+        max_conf = probs.max(dim=1).values.cpu().numpy()
+    metrics = {
+        "top1_acc": float((preds == labels).mean()),
+        "macro_f1": float(f1_score(labels, preds, average='macro')),
+        "mean_max_conf": float(max_conf.mean())
+    }
+    return metrics, preds
+
+def prediction_consistency(preds_a, preds_b):
+    """Fraction of images where two prediction sets agree"""
+    return float((preds_a == preds_b).mean())
+
 import open_clip
 
 def clip_zero_shot_eval(clip_model, tokenizer, images_transformed, labels, class_names, device='cuda'):
@@ -42,4 +61,5 @@ def clip_zero_shot_eval(clip_model, tokenizer, images_transformed, labels, class
     
     top1_acc = (preds == labels).mean()
     macro_f1 = f1_score(labels, preds, average='macro')
-    return {"top1_acc": float(top1_acc), "macro_f1": float(macro_f1), "mean_max_conf": float(max_conf.mean())}
+    metrics = {"top1_acc": float(top1_acc), "macro_f1": float(macro_f1), "mean_max_conf": float(max_conf.mean())}
+    return metrics, preds
