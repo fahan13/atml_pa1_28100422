@@ -1,0 +1,218 @@
+{
+  "step": "translation",
+  "seed": 6304,
+  "shifts": [
+    0,
+    8,
+    16,
+    32
+  ],
+  "directions": [
+    "up",
+    "down",
+    "left",
+    "right"
+  ],
+  "curves": {
+    "resnet50": {
+      "0": {
+        "acc_mean": 0.952,
+        "acc_std": 0.0,
+        "consistency_mean": 1.0,
+        "consistency_std": 0.0,
+        "per_direction_acc": {
+          "up": 0.952,
+          "down": 0.952,
+          "left": 0.952,
+          "right": 0.952
+        }
+      },
+      "8": {
+        "acc_mean": 0.95,
+        "acc_std": 0.0031622776601683824,
+        "consistency_mean": 0.9814999999999999,
+        "consistency_std": 0.004092676385936229,
+        "per_direction_acc": {
+          "up": 0.946,
+          "down": 0.948,
+          "left": 0.952,
+          "right": 0.954
+        }
+      },
+      "16": {
+        "acc_mean": 0.9475,
+        "acc_std": 0.002598076211353318,
+        "consistency_mean": 0.982,
+        "consistency_std": 0.0024494897427831805,
+        "per_direction_acc": {
+          "up": 0.944,
+          "down": 0.946,
+          "left": 0.95,
+          "right": 0.95
+        }
+      },
+      "32": {
+        "acc_mean": 0.9385,
+        "acc_std": 0.003278719262150961,
+        "consistency_mean": 0.9690000000000001,
+        "consistency_std": 0.003316624790355403,
+        "per_direction_acc": {
+          "up": 0.938,
+          "down": 0.944,
+          "left": 0.936,
+          "right": 0.936
+        }
+      }
+    },
+    "vit_b16": {
+      "0": {
+        "acc_mean": 0.964,
+        "acc_std": 0.0,
+        "consistency_mean": 1.0,
+        "consistency_std": 0.0,
+        "per_direction_acc": {
+          "up": 0.964,
+          "down": 0.964,
+          "left": 0.964,
+          "right": 0.964
+        }
+      },
+      "8": {
+        "acc_mean": 0.9595,
+        "acc_std": 0.0008660254037844396,
+        "consistency_mean": 0.9835,
+        "consistency_std": 0.002958039891549811,
+        "per_direction_acc": {
+          "up": 0.958,
+          "down": 0.96,
+          "left": 0.96,
+          "right": 0.96
+        }
+      },
+      "16": {
+        "acc_mean": 0.9614999999999999,
+        "acc_std": 0.0021794494717703385,
+        "consistency_mean": 0.994,
+        "consistency_std": 0.0,
+        "per_direction_acc": {
+          "up": 0.958,
+          "down": 0.962,
+          "left": 0.962,
+          "right": 0.964
+        }
+      },
+      "32": {
+        "acc_mean": 0.9609999999999999,
+        "acc_std": 0.0030000000000000027,
+        "consistency_mean": 0.988,
+        "consistency_std": 0.0,
+        "per_direction_acc": {
+          "up": 0.962,
+          "down": 0.964,
+          "left": 0.956,
+          "right": 0.962
+        }
+      }
+    },
+    "clip_head": {
+      "0": {
+        "acc_mean": 0.966,
+        "acc_std": 0.0,
+        "consistency_mean": 1.0,
+        "consistency_std": 0.0,
+        "per_direction_acc": {
+          "up": 0.966,
+          "down": 0.966,
+          "left": 0.966,
+          "right": 0.966
+        }
+      },
+      "8": {
+        "acc_mean": 0.965,
+        "acc_std": 0.007810249675906661,
+        "consistency_mean": 0.9774999999999999,
+        "consistency_std": 0.004330127018922197,
+        "per_direction_acc": {
+          "up": 0.966,
+          "down": 0.964,
+          "left": 0.954,
+          "right": 0.976
+        }
+      },
+      "16": {
+        "acc_mean": 0.96,
+        "acc_std": 0.004242640687119289,
+        "consistency_mean": 0.9690000000000001,
+        "consistency_std": 0.004123105625617665,
+        "per_direction_acc": {
+          "up": 0.956,
+          "down": 0.962,
+          "left": 0.966,
+          "right": 0.956
+        }
+      },
+      "32": {
+        "acc_mean": 0.95,
+        "acc_std": 0.006480740698407867,
+        "consistency_mean": 0.965,
+        "consistency_std": 0.004582575694955844,
+        "per_direction_acc": {
+          "up": 0.958,
+          "down": 0.94,
+          "left": 0.95,
+          "right": 0.952
+        }
+      }
+    },
+    "clip_zeroshot": {
+      "0": {
+        "acc_mean": 0.964,
+        "acc_std": 0.0,
+        "consistency_mean": 1.0,
+        "consistency_std": 0.0,
+        "per_direction_acc": {
+          "up": 0.964,
+          "down": 0.964,
+          "left": 0.964,
+          "right": 0.964
+        }
+      },
+      "8": {
+        "acc_mean": 0.9595,
+        "acc_std": 0.005172040216394305,
+        "consistency_mean": 0.9650000000000001,
+        "consistency_std": 0.0030000000000000027,
+        "per_direction_acc": {
+          "up": 0.962,
+          "down": 0.966,
+          "left": 0.952,
+          "right": 0.958
+        }
+      },
+      "16": {
+        "acc_mean": 0.9590000000000001,
+        "acc_std": 0.007280109889280525,
+        "consistency_mean": 0.9655,
+        "consistency_std": 0.002958039891549811,
+        "per_direction_acc": {
+          "up": 0.968,
+          "down": 0.964,
+          "left": 0.954,
+          "right": 0.95
+        }
+      },
+      "32": {
+        "acc_mean": 0.943,
+        "acc_std": 0.006403124237432815,
+        "consistency_mean": 0.963,
+        "consistency_std": 0.005385164807134509,
+        "per_direction_acc": {
+          "up": 0.934,
+          "down": 0.942,
+          "left": 0.952,
+          "right": 0.944
+        }
+      }
+    }
+  }
+}

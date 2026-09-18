@@ -20,6 +20,32 @@ def hue_rotate_transform(img_tensor, hue_factor=0.5):
     strong and unambiguous as possible, while shape/brightness stay untouched."""
     return TF.adjust_hue(img_tensor, hue_factor)
 
+import torch.nn.functional as F
+
+def translate_transform(img_tensor, shift, direction):
+    """Shift the image by `shift` pixels in one cardinal direction.
+    img_tensor: (3, H, W) in [0,1].
+    direction: 'up', 'down', 'left', or 'right'.
+
+    Uses reflection padding to avoid introducing black borders.
+    """
+    if shift == 0:
+        return img_tensor
+
+    C, H, W = img_tensor.shape
+    p = shift
+    # F.pad expects a batch dimension, so add one and remove it after
+    padded = F.pad(img_tensor.unsqueeze(0), (p, p, p, p), mode='reflect').squeeze(0)
+
+    # crop a HxW window, offset in the chosen direction
+    if direction == 'right':    top, left = p, p + shift
+    elif direction == 'left':   top, left = p, p - shift
+    elif direction == 'down':   top, left = p + shift, p
+    elif direction == 'up':     top, left = p - shift, p
+    else: raise ValueError(f"unknown direction: {direction}")
+
+    return padded[:, top:top + H, left:left + W]
+
 # each model's own final normalization step, applied AFTER the shared resize
 resnet_normalize = T.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])  # standard ImageNet stats
 vit_normalize = T.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])      # same — both pretrained on ImageNet this way

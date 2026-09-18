@@ -129,3 +129,31 @@ def extract_features_from_tensors(model, img_tensors, normalize_fn, model_type='
                 f = model(batch)
             feats_all.append(f.cpu().numpy())
     return np.concatenate(feats_all)
+
+def clip_zero_shot_batched(clip_model, tokenizer, img_tensors, labels, class_names,
+                            batch_size=64, device='cuda'):
+    """Same as clip_zero_shot_eval but processes images in chunks so peak memory
+    stays flat regardless of how many images we pass in."""
+    clip_model = clip_model.to(device)
+    prompts = [f"a photo of a {c}." for c in class_names]
+    with torch.no_grad():
+        text_feats = clip_model.encode_text(tokenizer(prompts).to(device))
+        text_feats = text_feats / text_feats.norm(dim=-1, keepdim=True)
+        logit_scale = clip_model.logit_scale.exp()
+
+        preds_all, conf_all = [], []
+        for i in range(0, len(img_tensors), batch_size):
+            batch = img_tensors[i:i + batch_size].to(device)
+            f = clip_model.encode_image(batch)
+            f = f / f.norm(dim=-1, keepdim=True)
+            probs = torch.softmax(logit_scale * f @ text_feats.T, dim=1)
+            preds_all.append(probs.argmax(1).cpu().numpy())
+            conf_all.append(probs.max(1).values.cpu().numpy())
+            del batch, f, probs
+
+    preds = np.concatenate(preds_all)
+    max_conf = np.concatenate(conf_all)
+    metrics = {"top1_acc": float((preds == labels).mean()),
+               "macro_f1": float(f1_score(labels, preds, average='macro')),
+               "mean_max_conf": float(max_conf.mean())}
+    return metrics, preds
