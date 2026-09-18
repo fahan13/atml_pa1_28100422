@@ -1,6 +1,7 @@
 import torch.nn as nn
 import torch
 from common.seed import set_seed
+import copy
 
 def train_linear_head(train_feats, train_labels, val_feats, val_labels,
                        num_classes=10, seed=6304, max_epochs=50, patience=5, device='cuda'):
@@ -37,7 +38,7 @@ def train_linear_head(train_feats, train_labels, val_feats, val_labels,
         
         if val_acc > best_val_acc:
             best_val_acc = val_acc
-            best_state = head.state_dict() 
+            best_state = copy.deepcopy(head.state_dict())
             epochs_without_improvement = 0
         else:
             epochs_without_improvement += 1

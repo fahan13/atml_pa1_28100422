@@ -32,8 +32,7 @@ import open_clip
 
 def get_clip():
     model, _, preprocess = open_clip.create_model_and_transforms(
-        'ViT-B-32', pretrained='openai'
-    )
+    'ViT-B-32-quickgelu', pretrained='openai')
     
     for param in model.parameters():
         param.requires_grad = False
@@ -54,29 +53,58 @@ def extract_features(model, image_tensor, model_type='resnet_or_vit'):
 import numpy as np
 import torch
 from torch.utils.data import DataLoader, Subset
+import torchvision.models as models
 
-def extract_all_features(model, dataset, indices, normalize_fn, model_type='resnet_or_vit', batch_size=64, device='cuda'):
+def extract_all_features(
+    model,
+    dataset,
+    indices,
+    normalize_fn,
+    model_type='resnet_or_vit',
+    batch_size=64,
+    device='cuda',
+    intervention_fn=None
+):
     from img_prep.transforms import to_common_224
-    
+
     model = model.to(device)
     subset = Subset(dataset, indices)
 
     def collate(batch):
-        imgs = torch.stack([normalize_fn(to_common_224(img)) for img, _ in batch])  # resize->tensor first, THEN normalize
+        imgs = []
+
+        for img, _ in batch:
+            img = to_common_224(img)
+
+            if intervention_fn is not None:
+                img = intervention_fn(img)
+
+            img = normalize_fn(img)
+            imgs.append(img)
+
+        imgs = torch.stack(imgs)
         labels = torch.tensor([lbl for _, lbl in batch])
+
         return imgs, labels
 
-    loader = DataLoader(subset, batch_size=batch_size, collate_fn=collate)
+    loader = DataLoader(
+        subset,
+        batch_size=batch_size,
+        collate_fn=collate
+    )
 
     all_feats, all_labels = [], []
+
     with torch.no_grad():
         for imgs, labels in loader:
             imgs = imgs.to(device)
+
             if model_type == 'clip':
                 feats = model.encode_image(imgs)
                 feats = feats / feats.norm(dim=-1, keepdim=True)
             else:
                 feats = model(imgs)
+
             all_feats.append(feats.cpu().numpy())
             all_labels.append(labels.numpy())
 
