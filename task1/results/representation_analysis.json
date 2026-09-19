@@ -1,0 +1,39 @@
+{
+  "step": "representation_analysis",
+  "seed": 6304,
+  "cosine_stability": {
+    "resnet50": {
+      "grayscale": 0.7979374176669061,
+      "patch_shuffle": 0.6935052120381321,
+      "translation_32": 0.9392843432509076,
+      "cue_conflict": 0.24504338615238233
+    },
+    "vit_b16": {
+      "grayscale": 0.7316273172833926,
+      "patch_shuffle": 0.6262675175452881,
+      "translation_32": 0.9512508841415477,
+      "cue_conflict": 0.22692698764857752
+    },
+    "clip": {
+      "grayscale": 0.8876952701395974,
+      "patch_shuffle": 0.746633516694541,
+      "translation_32": 0.9630835176804023,
+      "cue_conflict": 0.6749752145890432
+    }
+  },
+  "visualization_settings": {
+    "tsne": {
+      "n_components": "2",
+      "perplexity": "30",
+      "init": "pca",
+      "learning_rate": "auto",
+      "random_state": "6304"
+    },
+    "umap": {
+      "n_components": "2",
+      "n_neighbors": "15",
+      "min_dist": "0.1",
+      "random_state": "6304"
+    }
+  }
+}
