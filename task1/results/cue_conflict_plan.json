@@ -162,6 +162,54 @@
       "direction": "content=airplane,style=cat"
     },
     {
+      "content_pos": 4,
+      "style_pos": 95,
+      "shape_label": 0,
+      "texture_label": 3,
+      "pair": "airplane-cat",
+      "direction": "content=airplane,style=cat"
+    },
+    {
+      "content_pos": 104,
+      "style_pos": 391,
+      "shape_label": 0,
+      "texture_label": 3,
+      "pair": "airplane-cat",
+      "direction": "content=airplane,style=cat"
+    },
+    {
+      "content_pos": 284,
+      "style_pos": 242,
+      "shape_label": 0,
+      "texture_label": 3,
+      "pair": "airplane-cat",
+      "direction": "content=airplane,style=cat"
+    },
+    {
+      "content_pos": 172,
+      "style_pos": 408,
+      "shape_label": 0,
+      "texture_label": 3,
+      "pair": "airplane-cat",
+      "direction": "content=airplane,style=cat"
+    },
+    {
+      "content_pos": 453,
+      "style_pos": 134,
+      "shape_label": 0,
+      "texture_label": 3,
+      "pair": "airplane-cat",
+      "direction": "content=airplane,style=cat"
+    },
+    {
+      "content_pos": 380,
+      "style_pos": 270,
+      "shape_label": 0,
+      "texture_label": 3,
+      "pair": "airplane-cat",
+      "direction": "content=airplane,style=cat"
+    },
+    {
       "content_pos": 356,
       "style_pos": 380,
       "shape_label": 3,
@@ -316,6 +364,54 @@
     {
       "content_pos": 468,
       "style_pos": 420,
+      "shape_label": 3,
+      "texture_label": 0,
+      "pair": "airplane-cat",
+      "direction": "content=cat,style=airplane"
+    },
+    {
+      "content_pos": 472,
+      "style_pos": 192,
+      "shape_label": 3,
+      "texture_label": 0,
+      "pair": "airplane-cat",
+      "direction": "content=cat,style=airplane"
+    },
+    {
+      "content_pos": 47,
+      "style_pos": 254,
+      "shape_label": 3,
+      "texture_label": 0,
+      "pair": "airplane-cat",
+      "direction": "content=cat,style=airplane"
+    },
+    {
+      "content_pos": 5,
+      "style_pos": 4,
+      "shape_label": 3,
+      "texture_label": 0,
+      "pair": "airplane-cat",
+      "direction": "content=cat,style=airplane"
+    },
+    {
+      "content_pos": 219,
+      "style_pos": 75,
+      "shape_label": 3,
+      "texture_label": 0,
+      "pair": "airplane-cat",
+      "direction": "content=cat,style=airplane"
+    },
+    {
+      "content_pos": 323,
+      "style_pos": 190,
+      "shape_label": 3,
+      "texture_label": 0,
+      "pair": "airplane-cat",
+      "direction": "content=cat,style=airplane"
+    },
+    {
+      "content_pos": 369,
+      "style_pos": 165,
       "shape_label": 3,
       "texture_label": 0,
       "pair": "airplane-cat",
@@ -482,6 +578,54 @@
       "direction": "content=car,style=deer"
     },
     {
+      "content_pos": 128,
+      "style_pos": 499,
+      "shape_label": 2,
+      "texture_label": 4,
+      "pair": "car-deer",
+      "direction": "content=car,style=deer"
+    },
+    {
+      "content_pos": 415,
+      "style_pos": 67,
+      "shape_label": 2,
+      "texture_label": 4,
+      "pair": "car-deer",
+      "direction": "content=car,style=deer"
+    },
+    {
+      "content_pos": 442,
+      "style_pos": 216,
+      "shape_label": 2,
+      "texture_label": 4,
+      "pair": "car-deer",
+      "direction": "content=car,style=deer"
+    },
+    {
+      "content_pos": 253,
+      "style_pos": 337,
+      "shape_label": 2,
+      "texture_label": 4,
+      "pair": "car-deer",
+      "direction": "content=car,style=deer"
+    },
+    {
+      "content_pos": 225,
+      "style_pos": 1,
+      "shape_label": 2,
+      "texture_label": 4,
+      "pair": "car-deer",
+      "direction": "content=car,style=deer"
+    },
+    {
+      "content_pos": 311,
+      "style_pos": 283,
+      "shape_label": 2,
+      "texture_label": 4,
+      "pair": "car-deer",
+      "direction": "content=car,style=deer"
+    },
+    {
       "content_pos": 354,
       "style_pos": 372,
       "shape_label": 4,
@@ -636,6 +780,54 @@
     {
       "content_pos": 367,
       "style_pos": 486,
+      "shape_label": 4,
+      "texture_label": 2,
+      "pair": "car-deer",
+      "direction": "content=deer,style=car"
+    },
+    {
+      "content_pos": 67,
+      "style_pos": 378,
+      "shape_label": 4,
+      "texture_label": 2,
+      "pair": "car-deer",
+      "direction": "content=deer,style=car"
+    },
+    {
+      "content_pos": 282,
+      "style_pos": 288,
+      "shape_label": 4,
+      "texture_label": 2,
+      "pair": "car-deer",
+      "direction": "content=deer,style=car"
+    },
+    {
+      "content_pos": 1,
+      "style_pos": 55,
+      "shape_label": 4,
+      "texture_label": 2,
+      "pair": "car-deer",
+      "direction": "content=deer,style=car"
+    },
+    {
+      "content_pos": 435,
+      "style_pos": 442,
+      "shape_label": 4,
+      "texture_label": 2,
+      "pair": "car-deer",
+      "direction": "content=deer,style=car"
+    },
+    {
+      "content_pos": 54,
+      "style_pos": 114,
+      "shape_label": 4,
+      "texture_label": 2,
+      "pair": "car-deer",
+      "direction": "content=deer,style=car"
+    },
+    {
+      "content_pos": 216,
+      "style_pos": 239,
       "shape_label": 4,
       "texture_label": 2,
       "pair": "car-deer",
@@ -802,6 +994,54 @@
       "direction": "content=ship,style=dog"
     },
     {
+      "content_pos": 21,
+      "style_pos": 466,
+      "shape_label": 8,
+      "texture_label": 5,
+      "pair": "ship-dog",
+      "direction": "content=ship,style=dog"
+    },
+    {
+      "content_pos": 492,
+      "style_pos": 69,
+      "shape_label": 8,
+      "texture_label": 5,
+      "pair": "ship-dog",
+      "direction": "content=ship,style=dog"
+    },
+    {
+      "content_pos": 464,
+      "style_pos": 228,
+      "shape_label": 8,
+      "texture_label": 5,
+      "pair": "ship-dog",
+      "direction": "content=ship,style=dog"
+    },
+    {
+      "content_pos": 204,
+      "style_pos": 68,
+      "shape_label": 8,
+      "texture_label": 5,
+      "pair": "ship-dog",
+      "direction": "content=ship,style=dog"
+    },
+    {
+      "content_pos": 376,
+      "style_pos": 275,
+      "shape_label": 8,
+      "texture_label": 5,
+      "pair": "ship-dog",
+      "direction": "content=ship,style=dog"
+    },
+    {
+      "content_pos": 414,
+      "style_pos": 467,
+      "shape_label": 8,
+      "texture_label": 5,
+      "pair": "ship-dog",
+      "direction": "content=ship,style=dog"
+    },
+    {
       "content_pos": 69,
       "style_pos": 234,
       "shape_label": 5,
@@ -956,6 +1196,54 @@
     {
       "content_pos": 138,
       "style_pos": 306,
+      "shape_label": 5,
+      "texture_label": 8,
+      "pair": "ship-dog",
+      "direction": "content=dog,style=ship"
+    },
+    {
+      "content_pos": 52,
+      "style_pos": 482,
+      "shape_label": 5,
+      "texture_label": 8,
+      "pair": "ship-dog",
+      "direction": "content=dog,style=ship"
+    },
+    {
+      "content_pos": 448,
+      "style_pos": 344,
+      "shape_label": 5,
+      "texture_label": 8,
+      "pair": "ship-dog",
+      "direction": "content=dog,style=ship"
+    },
+    {
+      "content_pos": 407,
+      "style_pos": 286,
+      "shape_label": 5,
+      "texture_label": 8,
+      "pair": "ship-dog",
+      "direction": "content=dog,style=ship"
+    },
+    {
+      "content_pos": 467,
+      "style_pos": 374,
+      "shape_label": 5,
+      "texture_label": 8,
+      "pair": "ship-dog",
+      "direction": "content=dog,style=ship"
+    },
+    {
+      "content_pos": 358,
+      "style_pos": 289,
+      "shape_label": 5,
+      "texture_label": 8,
+      "pair": "ship-dog",
+      "direction": "content=dog,style=ship"
+    },
+    {
+      "content_pos": 466,
+      "style_pos": 319,
       "shape_label": 5,
       "texture_label": 8,
       "pair": "ship-dog",
@@ -1122,6 +1410,54 @@
       "direction": "content=truck,style=bird"
     },
     {
+      "content_pos": 240,
+      "style_pos": 214,
+      "shape_label": 9,
+      "texture_label": 1,
+      "pair": "truck-bird",
+      "direction": "content=truck,style=bird"
+    },
+    {
+      "content_pos": 324,
+      "style_pos": 102,
+      "shape_label": 9,
+      "texture_label": 1,
+      "pair": "truck-bird",
+      "direction": "content=truck,style=bird"
+    },
+    {
+      "content_pos": 434,
+      "style_pos": 88,
+      "shape_label": 9,
+      "texture_label": 1,
+      "pair": "truck-bird",
+      "direction": "content=truck,style=bird"
+    },
+    {
+      "content_pos": 84,
+      "style_pos": 246,
+      "shape_label": 9,
+      "texture_label": 1,
+      "pair": "truck-bird",
+      "direction": "content=truck,style=bird"
+    },
+    {
+      "content_pos": 44,
+      "style_pos": 179,
+      "shape_label": 9,
+      "texture_label": 1,
+      "pair": "truck-bird",
+      "direction": "content=truck,style=bird"
+    },
+    {
+      "content_pos": 402,
+      "style_pos": 256,
+      "shape_label": 9,
+      "texture_label": 1,
+      "pair": "truck-bird",
+      "direction": "content=truck,style=bird"
+    },
+    {
       "content_pos": 222,
       "style_pos": 231,
       "shape_label": 1,
@@ -1276,6 +1612,54 @@
     {
       "content_pos": 168,
       "style_pos": 230,
+      "shape_label": 1,
+      "texture_label": 9,
+      "pair": "truck-bird",
+      "direction": "content=bird,style=truck"
+    },
+    {
+      "content_pos": 103,
+      "style_pos": 207,
+      "shape_label": 1,
+      "texture_label": 9,
+      "pair": "truck-bird",
+      "direction": "content=bird,style=truck"
+    },
+    {
+      "content_pos": 266,
+      "style_pos": 205,
+      "shape_label": 1,
+      "texture_label": 9,
+      "pair": "truck-bird",
+      "direction": "content=bird,style=truck"
+    },
+    {
+      "content_pos": 92,
+      "style_pos": 498,
+      "shape_label": 1,
+      "texture_label": 9,
+      "pair": "truck-bird",
+      "direction": "content=bird,style=truck"
+    },
+    {
+      "content_pos": 493,
+      "style_pos": 429,
+      "shape_label": 1,
+      "texture_label": 9,
+      "pair": "truck-bird",
+      "direction": "content=bird,style=truck"
+    },
+    {
+      "content_pos": 27,
+      "style_pos": 240,
+      "shape_label": 1,
+      "texture_label": 9,
+      "pair": "truck-bird",
+      "direction": "content=bird,style=truck"
+    },
+    {
+      "content_pos": 441,
+      "style_pos": 53,
       "shape_label": 1,
       "texture_label": 9,
       "pair": "truck-bird",
@@ -1442,6 +1826,54 @@
       "direction": "content=horse,style=monkey"
     },
     {
+      "content_pos": 164,
+      "style_pos": 413,
+      "shape_label": 6,
+      "texture_label": 7,
+      "pair": "horse-monkey",
+      "direction": "content=horse,style=monkey"
+    },
+    {
+      "content_pos": 198,
+      "style_pos": 175,
+      "shape_label": 6,
+      "texture_label": 7,
+      "pair": "horse-monkey",
+      "direction": "content=horse,style=monkey"
+    },
+    {
+      "content_pos": 81,
+      "style_pos": 411,
+      "shape_label": 6,
+      "texture_label": 7,
+      "pair": "horse-monkey",
+      "direction": "content=horse,style=monkey"
+    },
+    {
+      "content_pos": 117,
+      "style_pos": 285,
+      "shape_label": 6,
+      "texture_label": 7,
+      "pair": "horse-monkey",
+      "direction": "content=horse,style=monkey"
+    },
+    {
+      "content_pos": 63,
+      "style_pos": 470,
+      "shape_label": 6,
+      "texture_label": 7,
+      "pair": "horse-monkey",
+      "direction": "content=horse,style=monkey"
+    },
+    {
+      "content_pos": 329,
+      "style_pos": 392,
+      "shape_label": 6,
+      "texture_label": 7,
+      "pair": "horse-monkey",
+      "direction": "content=horse,style=monkey"
+    },
+    {
       "content_pos": 437,
       "style_pos": 312,
       "shape_label": 7,
@@ -1596,6 +2028,54 @@
     {
       "content_pos": 184,
       "style_pos": 15,
+      "shape_label": 7,
+      "texture_label": 6,
+      "pair": "horse-monkey",
+      "direction": "content=monkey,style=horse"
+    },
+    {
+      "content_pos": 444,
+      "style_pos": 63,
+      "shape_label": 7,
+      "texture_label": 6,
+      "pair": "horse-monkey",
+      "direction": "content=monkey,style=horse"
+    },
+    {
+      "content_pos": 335,
+      "style_pos": 368,
+      "shape_label": 7,
+      "texture_label": 6,
+      "pair": "horse-monkey",
+      "direction": "content=monkey,style=horse"
+    },
+    {
+      "content_pos": 34,
+      "style_pos": 305,
+      "shape_label": 7,
+      "texture_label": 6,
+      "pair": "horse-monkey",
+      "direction": "content=monkey,style=horse"
+    },
+    {
+      "content_pos": 276,
+      "style_pos": 22,
+      "shape_label": 7,
+      "texture_label": 6,
+      "pair": "horse-monkey",
+      "direction": "content=monkey,style=horse"
+    },
+    {
+      "content_pos": 386,
+      "style_pos": 155,
+      "shape_label": 7,
+      "texture_label": 6,
+      "pair": "horse-monkey",
+      "direction": "content=monkey,style=horse"
+    },
+    {
+      "content_pos": 300,
+      "style_pos": 375,
       "shape_label": 7,
       "texture_label": 6,
       "pair": "horse-monkey",
