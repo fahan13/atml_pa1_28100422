@@ -34,7 +34,7 @@ def _gen(seed):
 
 
 def build_loaders(data_root, splits, batch_per_source=8, target_batch=24,
-                  eval_batch=64, num_workers=2, seed=6304):
+                  eval_batch=64, num_workers=2, seed=6304, include_target=True):
     """
     source_train : one InfiniteLoader per source domain, batch 8 (domain-balanced)
     target_train : one InfiniteLoader over ALL unlabelled sketches, batch 24
@@ -53,23 +53,30 @@ def build_loaders(data_root, splits, batch_per_source=8, target_batch=24,
         source_val[d] = DataLoader(
             va, batch_size=eval_batch, shuffle=False, num_workers=num_workers)
 
-    tgt = splits['domains'][TARGET_DOMAIN]['all']
-    # adaptation sees target images with the TRAIN augmentation; the final
-    # evaluation sees the very same images with the centre-crop pipeline
-    target_train = InfiniteLoader(DataLoader(
-        PACSDataset(data_root, tgt, train_tf), batch_size=target_batch,
-        shuffle=True, drop_last=True, num_workers=num_workers,
-        pin_memory=True, generator=_gen(seed + 100)))
-    target_eval = DataLoader(
-        PACSDataset(data_root, tgt, eval_tf), batch_size=eval_batch,
-        shuffle=False, num_workers=num_workers)
+    if include_target:
+        tgt = splits['domains'][TARGET_DOMAIN]['all']
+        # adaptation sees target images with the TRAIN augmentation; the final
+        # evaluation sees the very same images with the centre-crop pipeline
+        target_train = InfiniteLoader(DataLoader(
+            PACSDataset(data_root, tgt, train_tf), batch_size=target_batch,
+            shuffle=True, drop_last=True, num_workers=num_workers,
+            pin_memory=True, generator=_gen(seed + 100)))
+        target_eval = DataLoader(
+            PACSDataset(data_root, tgt, eval_tf), batch_size=eval_batch,
+            shuffle=False, num_workers=num_workers)
+        n_target = len(tgt)
+    else:
+        # Task 3: no Sketch image may be loaded by training, source-side
+        # diagnostics, checkpoint selection or hyperparameter selection.
+        target_train = target_eval = None
+        n_target = 0
 
     n_source_train = sum(len(splits['domains'][d]['train']) for d in SOURCE_DOMAINS)
     steps_per_epoch = math.ceil(n_source_train / (batch_per_source * len(SOURCE_DOMAINS)))
 
     return {'source_train': source_train, 'source_val': source_val,
             'target_train': target_train, 'target_eval': target_eval,
-            'n_source_train': n_source_train, 'n_target': len(tgt),
+            'n_source_train': n_source_train, 'n_target': n_target,
             'steps_per_epoch': steps_per_epoch}
 
 

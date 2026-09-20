@@ -41,12 +41,18 @@ def train_model(model, method, loaders, cfg, device, ckpt_path=None, verbose=Tru
                 tgt_x = tx.to(device, non_blocking=True)   # and are discarded right here
             p = min(1.0, step / max(1, total_steps - 1))
 
-            optimizer.zero_grad(set_to_none=True)
-            with torch.amp.autocast('cuda', enabled=use_amp):
-                loss, logs = method.compute_loss(model, src_x, src_y, tgt_x, p)
-            scaler.scale(loss).backward()
-            scaler.step(optimizer)
-            scaler.update()
+            if hasattr(method, 'training_step'):
+                # SAM needs two forward/backward passes per update, so it owns
+                # the step. Sampling, budget, schedule and checkpointing are
+                # still the shared loop's, so the comparison stays controlled.
+                logs = method.training_step(model, optimizer, src_x, src_y, tgt_x, p)
+            else:
+                optimizer.zero_grad(set_to_none=True)
+                with torch.amp.autocast('cuda', enabled=use_amp):
+                    loss, logs = method.compute_loss(model, src_x, src_y, tgt_x, p)
+                scaler.scale(loss).backward()
+                scaler.step(optimizer)
+                scaler.update()
 
             for k, v in logs.items():
                 epoch_logs[k] = epoch_logs.get(k, 0.0) + v
