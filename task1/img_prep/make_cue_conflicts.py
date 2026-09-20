@@ -14,38 +14,6 @@ CLASS_PAIRS = [
 ]
 
 
-def sobel_edges(img):
-    """Edge/gradient magnitude map — a cheap proxy for 'the shape in this image'."""
-    gray = img.mean(dim=1, keepdim=True)
-    kx = torch.tensor([[-1., 0., 1.], [-2., 0., 2.], [-1., 0., 1.]], device=img.device).view(1, 1, 3, 3)
-    ky = kx.transpose(2, 3)
-    gx = F.conv2d(gray, kx, padding=1)
-    gy = F.conv2d(gray, ky, padding=1)
-    return (gx ** 2 + gy ** 2).sqrt()
-
-
-def rejection_rule(stylized, content, edge_corr_min=0.20, min_std=0.05, min_change=0.05):
-    """VISUAL REJECTION RULE — 
-
-    An image is ACCEPTED only if all three hold:
-      A) structure survived  : edge-map correlation with the content image >= edge_corr_min
-      B) not degenerate      : mean per-channel std >= min_std (rejects washed-out/collapsed output)
-      C) style was applied   : mean abs difference from content >= min_change (rejects near-copies)
-    Returns a boolean array, one entry per image.
-    """
-    e_s = sobel_edges(stylized).flatten(1)
-    e_c = sobel_edges(content).flatten(1)
-    e_s = e_s - e_s.mean(dim=1, keepdim=True)
-    e_c = e_c - e_c.mean(dim=1, keepdim=True)
-    corr = (e_s * e_c).sum(1) / (e_s.norm(dim=1) * e_c.norm(dim=1) + 1e-8)
-
-    std = stylized.std(dim=(2, 3)).mean(dim=1)
-    change = (stylized - content).abs().mean(dim=(1, 2, 3))
-
-    keep = (corr >= edge_corr_min) & (std >= min_std) & (change >= min_change)
-    return keep.cpu().numpy(), corr.cpu().numpy(), std.cpu().numpy(), change.cpu().numpy()
-
-
 def build_conflict_plan(test_labels, class_names, n_per_direction=20, seed=6304):
     """Decide which image indices pair with which, for every (pair, direction).
     Returns a list of dicts: content index, style index, shape label, texture label.

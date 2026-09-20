@@ -63,6 +63,7 @@ class DANN:
         self.disc = DomainDiscriminator(in_dim=512, hidden=cfg.get('disc_hidden', 256))
         self.alpha_max = cfg.get('alpha_max', 1.0)   # 1.0 for the main run
         self.lam_domain = cfg.get('lambda_domain', 1.0)
+        self.normalize_input = cfg.get('normalize_disc_input', False)
 
     def modules(self):
         return [self.disc]
@@ -86,7 +87,10 @@ class DANN:
         # statistics frozen nothing bounds activation magnitude. Feeding direction
         # only means feature norm can no longer manufacture confident (wrong)
         # domain predictions. The classifier head still receives the raw feature.
-        d_logits = self.disc(F.normalize(grad_reverse(feat, alpha), dim=1))
+        f_rev = grad_reverse(feat, alpha)
+        if self.normalize_input:
+            f_rev = F.normalize(f_rev, dim=1)
+        d_logits = self.disc(f_rev)
         d_labels = torch.cat([
             torch.zeros(n_s, dtype=torch.long, device=feat.device),          # source = 0
             torch.full((feat.size(0) - n_s,), 1, dtype=torch.long, device=feat.device),
