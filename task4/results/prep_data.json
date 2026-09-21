@@ -1,0 +1,44 @@
+{
+  "step": "prep_data",
+  "seed": 6304,
+  "n_train": 45000,
+  "n_val": 5000,
+  "n_test": 10000,
+  "steps_per_epoch": 351,
+  "known_classes": [
+    "airplane",
+    "automobile",
+    "bird",
+    "cat",
+    "deer",
+    "dog",
+    "frog",
+    "horse",
+    "ship",
+    "truck"
+  ],
+  "near_unknown": [
+    "bus",
+    "pickup_truck",
+    "motorcycle",
+    "tractor",
+    "wolf",
+    "fox",
+    "leopard",
+    "camel"
+  ],
+  "far_unknown": [
+    "bottle",
+    "bowl",
+    "chair",
+    "clock",
+    "keyboard",
+    "mushroom",
+    "sunflower",
+    "wardrobe"
+  ],
+  "n_near": 800,
+  "n_far": 800,
+  "splits_file": "shared/splits/cifar10_seed6304.json",
+  "normalisation": "CIFAR-10 statistics applied to knowns and unknowns alike"
+}
