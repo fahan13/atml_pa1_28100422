@@ -1,0 +1,787 @@
+{
+  "step": "osr_eval",
+  "seed": 6304,
+  "note": "first notebook to load CIFAR-100; all thresholds read from scores.json",
+  "grid": {
+    "vanilla": {
+      "msp": {
+        "auroc_near": 0.8063018125,
+        "auroc_far": 0.892098875,
+        "auroc_all": 0.84920034375,
+        "test_acceptance": 0.9452,
+        "rej_near": 0.29375,
+        "rej_far": 0.42875,
+        "rej_all": 0.36125,
+        "fpr95_near": 0.70625,
+        "fpr95_far": 0.57125,
+        "fpr95_all": 0.63875
+      },
+      "mls": {
+        "auroc_near": 0.7825514375000001,
+        "auroc_far": 0.8895743124999999,
+        "auroc_all": 0.836062875,
+        "test_acceptance": 0.9516,
+        "rej_near": 0.3225,
+        "rej_far": 0.51125,
+        "rej_all": 0.416875,
+        "fpr95_near": 0.6775,
+        "fpr95_far": 0.48875,
+        "fpr95_all": 0.583125
+      },
+      "energy": {
+        "auroc_near": 0.7827440625,
+        "auroc_far": 0.8903582499999999,
+        "auroc_all": 0.83655115625,
+        "test_acceptance": 0.9523,
+        "rej_near": 0.33375,
+        "rej_far": 0.51875,
+        "rej_all": 0.42625,
+        "fpr95_near": 0.66625,
+        "fpr95_far": 0.48125,
+        "fpr95_all": 0.57375
+      },
+      "mahalanobis": {
+        "auroc_near": 0.7968113125,
+        "auroc_far": 0.913556125,
+        "auroc_all": 0.85518371875,
+        "test_acceptance": 0.9455,
+        "rej_near": 0.28625,
+        "rej_far": 0.5075,
+        "rej_all": 0.396875,
+        "fpr95_near": 0.71375,
+        "fpr95_far": 0.4925,
+        "fpr95_all": 0.603125
+      }
+    },
+    "gcsc": {
+      "msp": {
+        "auroc_near": 0.8252536874999999,
+        "auroc_far": 0.906426,
+        "auroc_all": 0.86583984375,
+        "test_acceptance": 0.9427,
+        "rej_near": 0.32125,
+        "rej_far": 0.45625,
+        "rej_all": 0.38875,
+        "fpr95_near": 0.67875,
+        "fpr95_far": 0.54375,
+        "fpr95_all": 0.61125
+      },
+      "mls": {
+        "auroc_near": 0.7958251875,
+        "auroc_far": 0.9087759375,
+        "auroc_all": 0.8523005624999999,
+        "test_acceptance": 0.9487,
+        "rej_near": 0.32875,
+        "rej_far": 0.5625,
+        "rej_all": 0.445625,
+        "fpr95_near": 0.67125,
+        "fpr95_far": 0.4375,
+        "fpr95_all": 0.554375
+      },
+      "energy": {
+        "auroc_near": 0.7947703125000001,
+        "auroc_far": 0.9089927499999999,
+        "auroc_all": 0.8518815312500001,
+        "test_acceptance": 0.9491,
+        "rej_near": 0.33625,
+        "rej_far": 0.55875,
+        "rej_all": 0.4475,
+        "fpr95_near": 0.66375,
+        "fpr95_far": 0.44125,
+        "fpr95_all": 0.5525
+      },
+      "mahalanobis": {
+        "auroc_near": 0.7782703125,
+        "auroc_far": 0.9070511250000002,
+        "auroc_all": 0.84266071875,
+        "test_acceptance": 0.9467,
+        "rej_near": 0.23875,
+        "rej_far": 0.46375,
+        "rej_all": 0.35125,
+        "fpr95_near": 0.76125,
+        "fpr95_far": 0.53625,
+        "fpr95_all": 0.64875
+      }
+    },
+    "proser": {
+      "msp": {
+        "auroc_near": 0.8108620625000001,
+        "auroc_far": 0.9037925,
+        "auroc_all": 0.85732728125,
+        "test_acceptance": 0.9475,
+        "rej_near": 0.295,
+        "rej_far": 0.43125,
+        "rej_all": 0.363125,
+        "fpr95_near": 0.705,
+        "fpr95_far": 0.56875,
+        "fpr95_all": 0.636875
+      },
+      "mls": {
+        "auroc_near": 0.8027903750000001,
+        "auroc_far": 0.91445475,
+        "auroc_all": 0.8586225624999999,
+        "test_acceptance": 0.9525,
+        "rej_near": 0.32125,
+        "rej_far": 0.55375,
+        "rej_all": 0.4375,
+        "fpr95_near": 0.67875,
+        "fpr95_far": 0.44625,
+        "fpr95_all": 0.5625
+      },
+      "energy": {
+        "auroc_near": 0.8030340625,
+        "auroc_far": 0.91559825,
+        "auroc_all": 0.85931615625,
+        "test_acceptance": 0.9523,
+        "rej_near": 0.3225,
+        "rej_far": 0.56,
+        "rej_all": 0.44125,
+        "fpr95_near": 0.6775,
+        "fpr95_far": 0.44,
+        "fpr95_all": 0.55875
+      },
+      "mahalanobis": {
+        "auroc_near": 0.8053371874999999,
+        "auroc_far": 0.9166994999999999,
+        "auroc_all": 0.86101834375,
+        "test_acceptance": 0.9511,
+        "rej_near": 0.30625,
+        "rej_far": 0.48875,
+        "rej_all": 0.3975,
+        "fpr95_near": 0.69375,
+        "fpr95_far": 0.51125,
+        "fpr95_all": 0.6025
+      },
+      "placeholder": {
+        "auroc_near": 0.790117375,
+        "auroc_far": 0.905868875,
+        "auroc_all": 0.847993125,
+        "test_acceptance": 0.9533,
+        "rej_near": 0.3,
+        "rej_far": 0.5075,
+        "rej_all": 0.40375,
+        "fpr95_near": 0.7,
+        "fpr95_far": 0.4925,
+        "fpr95_all": 0.59625
+      }
+    }
+  },
+  "table2_rows": [
+    "vanilla/mls",
+    "gcsc/mls",
+    "proser/mls",
+    "proser/placeholder"
+  ],
+  "csa": {
+    "vanilla": 0.9461,
+    "gcsc": 0.9507,
+    "proser": 0.9438
+  },
+  "per_class_acceptance": {
+    "vanilla/mls": {
+      "bus": 0.86,
+      "pickup_truck": 0.95,
+      "motorcycle": 0.38,
+      "tractor": 0.66,
+      "wolf": 0.79,
+      "fox": 0.61,
+      "leopard": 0.61,
+      "camel": 0.56,
+      "bottle": 0.42,
+      "bowl": 0.47,
+      "chair": 0.5,
+      "clock": 0.5,
+      "keyboard": 0.35,
+      "mushroom": 0.49,
+      "sunflower": 0.54,
+      "wardrobe": 0.64
+    },
+    "gcsc/mls": {
+      "bus": 0.89,
+      "pickup_truck": 0.96,
+      "motorcycle": 0.36,
+      "tractor": 0.52,
+      "wolf": 0.78,
+      "fox": 0.65,
+      "leopard": 0.7,
+      "camel": 0.51,
+      "bottle": 0.37,
+      "bowl": 0.41,
+      "chair": 0.45,
+      "clock": 0.44,
+      "keyboard": 0.33,
+      "mushroom": 0.47,
+      "sunflower": 0.36,
+      "wardrobe": 0.67
+    },
+    "proser/mls": {
+      "bus": 0.84,
+      "pickup_truck": 0.9,
+      "motorcycle": 0.31,
+      "tractor": 0.67,
+      "wolf": 0.78,
+      "fox": 0.7,
+      "leopard": 0.68,
+      "camel": 0.55,
+      "bottle": 0.35,
+      "bowl": 0.52,
+      "chair": 0.48,
+      "clock": 0.44,
+      "keyboard": 0.37,
+      "mushroom": 0.42,
+      "sunflower": 0.47,
+      "wardrobe": 0.52
+    },
+    "proser/placeholder": {
+      "bus": 0.87,
+      "pickup_truck": 0.91,
+      "motorcycle": 0.39,
+      "tractor": 0.65,
+      "wolf": 0.79,
+      "fox": 0.72,
+      "leopard": 0.71,
+      "camel": 0.56,
+      "bottle": 0.42,
+      "bowl": 0.48,
+      "chair": 0.55,
+      "clock": 0.46,
+      "keyboard": 0.42,
+      "mushroom": 0.48,
+      "sunflower": 0.55,
+      "wardrobe": 0.58
+    }
+  },
+  "absorption_vanilla": {
+    "bus": {
+      "group": "near",
+      "pred_counts_all": [
+        3,
+        15,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        79
+      ],
+      "pred_counts_accepted": [
+        1,
+        14,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        71
+      ],
+      "n_accepted": 86
+    },
+    "pickup_truck": {
+      "group": "near",
+      "pred_counts_all": [
+        3,
+        68,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        29
+      ],
+      "pred_counts_accepted": [
+        2,
+        67,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        26
+      ],
+      "n_accepted": 95
+    },
+    "motorcycle": {
+      "group": "near",
+      "pred_counts_all": [
+        19,
+        39,
+        1,
+        7,
+        0,
+        2,
+        5,
+        3,
+        0,
+        24
+      ],
+      "pred_counts_accepted": [
+        6,
+        17,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        12
+      ],
+      "n_accepted": 38
+    },
+    "tractor": {
+      "group": "near",
+      "pred_counts_all": [
+        5,
+        5,
+        2,
+        0,
+        3,
+        0,
+        2,
+        2,
+        10,
+        71
+      ],
+      "pred_counts_accepted": [
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        7,
+        53
+      ],
+      "n_accepted": 66
+    },
+    "wolf": {
+      "group": "near",
+      "pred_counts_all": [
+        0,
+        0,
+        4,
+        38,
+        2,
+        47,
+        4,
+        5,
+        0,
+        0
+      ],
+      "pred_counts_accepted": [
+        0,
+        0,
+        1,
+        30,
+        2,
+        42,
+        1,
+        3,
+        0,
+        0
+      ],
+      "n_accepted": 79
+    },
+    "fox": {
+      "group": "near",
+      "pred_counts_all": [
+        2,
+        0,
+        1,
+        43,
+        29,
+        17,
+        2,
+        6,
+        0,
+        0
+      ],
+      "pred_counts_accepted": [
+        1,
+        0,
+        1,
+        33,
+        16,
+        8,
+        1,
+        1,
+        0,
+        0
+      ],
+      "n_accepted": 61
+    },
+    "leopard": {
+      "group": "near",
+      "pred_counts_all": [
+        0,
+        0,
+        5,
+        38,
+        11,
+        6,
+        39,
+        1,
+        0,
+        0
+      ],
+      "pred_counts_accepted": [
+        0,
+        0,
+        2,
+        23,
+        5,
+        2,
+        28,
+        1,
+        0,
+        0
+      ],
+      "n_accepted": 61
+    },
+    "camel": {
+      "group": "near",
+      "pred_counts_all": [
+        4,
+        0,
+        12,
+        6,
+        19,
+        28,
+        2,
+        26,
+        0,
+        3
+      ],
+      "pred_counts_accepted": [
+        2,
+        0,
+        4,
+        4,
+        14,
+        18,
+        0,
+        14,
+        0,
+        0
+      ],
+      "n_accepted": 56
+    },
+    "bottle": {
+      "group": "far",
+      "pred_counts_all": [
+        2,
+        6,
+        12,
+        33,
+        0,
+        4,
+        4,
+        1,
+        18,
+        20
+      ],
+      "pred_counts_accepted": [
+        0,
+        1,
+        4,
+        15,
+        0,
+        2,
+        1,
+        0,
+        10,
+        9
+      ],
+      "n_accepted": 42
+    },
+    "bowl": {
+      "group": "far",
+      "pred_counts_all": [
+        8,
+        10,
+        6,
+        35,
+        0,
+        7,
+        14,
+        0,
+        17,
+        3
+      ],
+      "pred_counts_accepted": [
+        2,
+        6,
+        2,
+        20,
+        0,
+        2,
+        6,
+        0,
+        8,
+        1
+      ],
+      "n_accepted": 47
+    },
+    "chair": {
+      "group": "far",
+      "pred_counts_all": [
+        44,
+        2,
+        17,
+        17,
+        2,
+        1,
+        3,
+        1,
+        2,
+        11
+      ],
+      "pred_counts_accepted": [
+        27,
+        1,
+        7,
+        7,
+        1,
+        0,
+        0,
+        0,
+        0,
+        7
+      ],
+      "n_accepted": 50
+    },
+    "clock": {
+      "group": "far",
+      "pred_counts_all": [
+        6,
+        17,
+        13,
+        28,
+        1,
+        5,
+        4,
+        2,
+        14,
+        10
+      ],
+      "pred_counts_accepted": [
+        2,
+        10,
+        5,
+        17,
+        0,
+        1,
+        2,
+        1,
+        6,
+        6
+      ],
+      "n_accepted": 50
+    },
+    "keyboard": {
+      "group": "far",
+      "pred_counts_all": [
+        24,
+        5,
+        12,
+        16,
+        1,
+        3,
+        6,
+        4,
+        10,
+        19
+      ],
+      "pred_counts_accepted": [
+        13,
+        0,
+        5,
+        4,
+        1,
+        0,
+        2,
+        1,
+        3,
+        6
+      ],
+      "n_accepted": 35
+    },
+    "mushroom": {
+      "group": "far",
+      "pred_counts_all": [
+        8,
+        0,
+        39,
+        17,
+        3,
+        7,
+        21,
+        3,
+        1,
+        1
+      ],
+      "pred_counts_accepted": [
+        1,
+        0,
+        25,
+        8,
+        1,
+        2,
+        10,
+        2,
+        0,
+        0
+      ],
+      "n_accepted": 49
+    },
+    "sunflower": {
+      "group": "far",
+      "pred_counts_all": [
+        5,
+        1,
+        40,
+        9,
+        2,
+        16,
+        21,
+        2,
+        0,
+        4
+      ],
+      "pred_counts_accepted": [
+        2,
+        0,
+        23,
+        7,
+        1,
+        10,
+        10,
+        0,
+        0,
+        1
+      ],
+      "n_accepted": 54
+    },
+    "wardrobe": {
+      "group": "far",
+      "pred_counts_all": [
+        1,
+        1,
+        2,
+        53,
+        0,
+        1,
+        0,
+        1,
+        0,
+        41
+      ],
+      "pred_counts_accepted": [
+        0,
+        0,
+        0,
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        32
+      ],
+      "n_accepted": 64
+    }
+  },
+  "spearman_vanilla": {
+    "msp~mls": 0.9618249012528851,
+    "msp~energy": 0.9605189148064844,
+    "msp~mahalanobis": 0.6981881916752763,
+    "mls~energy": 0.9998761133583269,
+    "mls~mahalanobis": 0.5882290530996964,
+    "energy~mahalanobis": 0.586697632310681
+  },
+  "disagreement_mls_vs_mahalanobis": {
+    "near": {
+      "MLS_accept_MAH_reject": 40,
+      "MLS_reject_MAH_accept": 69,
+      "both_accept": 502
+    },
+    "far": {
+      "MLS_accept_MAH_reject": 68,
+      "MLS_reject_MAH_accept": 71,
+      "both_accept": 323
+    }
+  },
+  "failure_cases": [
+    {
+      "group": "near",
+      "unknown_class": "pickup_truck",
+      "pred": "automobile",
+      "u_mls": -8.864232063293457,
+      "tau": -5.778449916839599,
+      "class_acceptance": 0.95,
+      "cifar100_test_index": 9662,
+      "pos": 772
+    },
+    {
+      "group": "near",
+      "unknown_class": "bus",
+      "pred": "automobile",
+      "u_mls": -6.199170112609863,
+      "tau": -5.778449916839599,
+      "class_acceptance": 0.86,
+      "cifar100_test_index": 2019,
+      "pos": 151
+    },
+    {
+      "group": "near",
+      "unknown_class": "wolf",
+      "pred": "dog",
+      "u_mls": -8.782828330993652,
+      "tau": -5.778449916839599,
+      "class_acceptance": 0.79,
+      "cifar100_test_index": 9942,
+      "pos": 795
+    },
+    {
+      "group": "far",
+      "unknown_class": "wardrobe",
+      "pred": "cat",
+      "u_mls": -9.912796020507812,
+      "tau": -5.778449916839599,
+      "class_acceptance": 0.64,
+      "cifar100_test_index": 3378,
+      "pos": 285
+    },
+    {
+      "group": "far",
+      "unknown_class": "sunflower",
+      "pred": "bird",
+      "u_mls": -7.899116516113281,
+      "tau": -5.778449916839599,
+      "class_acceptance": 0.54,
+      "cifar100_test_index": 3770,
+      "pos": 315
+    },
+    {
+      "group": "far",
+      "unknown_class": "chair",
+      "pred": "airplane",
+      "u_mls": -6.150819301605225,
+      "tau": -5.778449916839599,
+      "class_acceptance": 0.5,
+      "cifar100_test_index": 8022,
+      "pos": 663
+    }
+  ],
+  "failure_rule": "Vanilla MLS; per group top-3 classes by acceptance (ties alphabetical); one accepted image per class drawn with seed 6304"
+}
