@@ -14,6 +14,7 @@ import math
 from pathlib import Path
 
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "report" / "figures" / "pacs_training_curves.png"
@@ -84,7 +85,7 @@ for lab, (p, c) in T3.items():
     mark_best(ax[1, 3], h, best, "mean_macro_f1", c)
     if lab == "DAN-DG":
         for k, name in (("mmd_pa", "P-A"), ("mmd_pc", "P-C"), ("mmd_ac", "A-C")):
-            ax[1, 1].plot(ep(h), [e[k] for e in h], "-o", ms=2.5, label=f"MMD$^2$ {name}")
+            ax[1, 1].plot(ep(h), [e[k] for e in h], "-o", ms=2.5, label=name)
     if lab == "SAM":
         ax[1, 2].plot(ep(h), [e["loss_gap"] for e in h], "-o", ms=2.5, c=c,
                       label="SAM: $L(\\theta+\\epsilon)-L(\\theta)$")
@@ -98,8 +99,14 @@ ax[1, 3].set_title("T3: mean source-val macro-F1")
 
 for a in ax.flat:
     a.set_xlabel("epoch")
+    a.xaxis.set_major_locator(MaxNLocator(integer=True))   # whole epochs only
     a.grid(alpha=0.25, lw=0.5)
     a.legend(frameon=False, loc="best")
+
+# DAN-DG panel: headroom + one-row legend so it cannot sit on the lines
+lo, hi = ax[1, 1].get_ylim()
+ax[1, 1].set_ylim(lo, hi + 0.35 * (hi - lo))
+ax[1, 1].legend(frameon=False, loc="upper center", ncol=3)
 
 fig.tight_layout()
 OUT.parent.mkdir(parents=True, exist_ok=True)
