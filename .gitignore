@@ -220,6 +220,7 @@ __marimo__/
 
 
 # PA1
+.vscode/
 datasets/
 *.pth
 *.pt
