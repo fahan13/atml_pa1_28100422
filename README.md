@@ -275,7 +275,6 @@ Methods implemented from their papers, in this repository, from scratch:
 - DANN — Ganin et al., *Domain-Adversarial Training of Neural Networks*, JMLR 2016
 - CDAN — Long et al., *Conditional Adversarial Domain Adaptation*, NeurIPS 2018
 - SAM — Foret et al., *Sharpness-Aware Minimization*, ICLR 2021
-- AdaIN style transfer for cue conflicts — Huang and Belongie, ICCV 2017; protocol after Geirhos et al., ICLR 2019
 - MSP — Hendrycks and Gimpel, ICLR 2017; MLS — Vaze et al., ICLR 2022; Energy — Liu et al., NeurIPS 2020; Mahalanobis — Lee et al., NeurIPS 2018
 - PROSER — Zhou et al., *Learning Placeholders for Open-Set Recognition*, CVPR 2021.
   Where the public reference implementation differs from the paper's equations,
@@ -288,6 +287,11 @@ Third-party code and weights used as libraries, not copied:
   RandAugment; dataset loaders for STL-10, CIFAR-10 and CIFAR-100
 - `open_clip` — OpenCLIP ViT-B-32 and its pretrained weights
 - `scikit-learn` — logistic-regression probes, t-SNE, AUROC and F1; `umap-learn` — UMAP
+- AdaIN (Huang and Belongie, ICCV 2017): the VGG-19 encoder and decoder definitions in
+  `task1/img_prep/adain.py` follow the public pytorch-AdaIN implementation
+  (https://github.com/naoto0804/pytorch-AdaIN), and we load its pretrained
+  `vgg_normalised.pth` and `decoder.pth`. Download both from that repository and pass
+  their paths to `AdaINStyleTransfer`. The cue-conflict protocol follows Geirhos et al., ICLR 2019.
 
 Datasets: STL-10 (Coates et al., 2011), PACS (Li et al., 2017), CIFAR-10 and
 CIFAR-100 (Krizhevsky, 2009).
